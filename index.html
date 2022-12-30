@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left-section">
+        <div class="time-container"></div>
+        <div class="selectMonth">
+          <img
+            src="./Images/left arrow.png"
+            alt="Previous Button"
+            class="monthChange"
+            onclick="renderPrevMonth()"
+          />
+          <select name="monthValue" id="month" onchange="monthChangeHandler()">
+            <option value="0">Select Month</option>
+          </select>
+          <form>
+            <input
+              type="number"
+              name="yearValue"
+              id="year"
+              onchange="yearChangeHandler()"
+            />
+          </form>
+          <img
+            src="./Images/right arrow.png"
+            alt="Next Button"
+            class="monthChange"
+            onclick="renderNextMonth()"
+          />
+        </div>
+        <div class="calendar"></div>
+        <div class="displayErrorMsg">
+          <h1>
+            Year should be in the range of <span>100</span> &
+            <span>100000</span>
+          </h1>
+        </div>
+      </div>
+      <div class="right-section">
+        <div class="weather-container">
+          <h1 id="city"></h1>
+          <div class="climate-container">
+            <div class="temperature-container">
+              <div class="normal-temperature"></div>
+              <div class="feels-like-temperature"></div>
+            </div>
+            <div class="weather-image">
+              <img src="" alt="weather" id="weather" />
+            </div>
+          </div>
+        </div>
+
+        <div class="events-container">Your Events
+          <p>(Click on a date to add event on that date)</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <h1>Give a description of your event</h1>
+        <textarea
+          name="event-desc"
+          id="event-input"
+          cols="50"
+          rows="5"
+        ></textarea>
+        <div class="buttons-container">
+          <button class="close-btn">Discard</button>
+          <button class="add-event-btn" onclick="addEvent()">Add</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

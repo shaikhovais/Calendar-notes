@@ -1,0 +1,396 @@
+input[type=number]::-webkit-inner-spin-button,          /* to remove arrows from input('number' type)*/
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #fa8072;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.left-section {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.selectMonth {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.selectMonth img {
+  height: 50px;
+  cursor: pointer;
+}
+
+select, #year {
+  cursor: pointer;
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: aquamarine;
+  outline: none;
+  text-align: center;
+  width: 200px;
+  height: 55px;
+}
+
+#year {
+  cursor: text;
+}
+
+.calendar div {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  padding: 10px;
+  text-align: center;
+  margin: 5px;
+  background-color: bisque;
+}
+
+.calendar .day {
+  background-color: aquamarine;
+  font-weight: bolder;
+}
+
+.calendar .today {
+  background-color:cornflowerblue;
+}
+
+span {
+  color: aquamarine;
+}
+
+.displayErrorMsg {
+  display: none;
+  color: black;
+  justify-content: center;
+  font-size: 20px;
+  text-align: center;
+}
+
+.right-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+.weather-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin: 10px;
+}
+
+.weather-container h1 {
+  font-family: sans-serif;
+  font-size: 40px;
+  margin: 0px;
+}
+
+.climate-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.normal-temperature {
+  font-size: 40px;
+}
+
+.feels-like-temperature {
+  font-size: 15px;
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  margin: 10px;
+}
+
+.time-container div {
+  height: 50px;
+  font-size: 25px;
+  width: 50px;
+  background-color: bisque;
+  margin: 20px;
+  display: flex;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.events-container {
+  margin: 10px;
+  background-color: royalblue;
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  background-color: rgb(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.events-container p {
+  opacity: 0.8;
+  font-size: 15px;
+}
+
+.event {
+  display: flex;
+  margin: 10px 0px;
+  text-align: start;
+  font-size: 17px;
+}
+
+.event-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5px;
+  background-color: bisque;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.event-month {
+  width: max-content;
+}
+
+.event-description {
+  padding: 5px;
+  background-color: aquamarine;
+  width: 100%;
+}
+
+.delete-event {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: red;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.delete-event img {
+  height: 30px;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  display: none;
+  place-items: center;
+  min-width: 100vw;
+  height: 100vh;
+  border: none;
+  background: rgb(0 0 0 / 0.4);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.modal-content {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: bisque;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+button {
+  cursor: pointer;
+}
+
+.modal textarea {
+  width: 500px;
+  height: 80px;
+  margin: 10px;
+  outline: none;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.close-btn, .add-event-btn {
+  background-color: white;
+  color: red;
+  border: 1px solid red;
+  padding: 5px 10px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  margin: 0px 50px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 500px;
+}
+
+.close-btn:hover {
+  color: white;
+  background-color: red;
+}
+
+.add-event-btn {
+  color: royalblue;
+  border: 1px solid royalblue;
+}
+
+.add-event-btn:hover {
+  color: white;
+  background-color: royalblue;
+}
+
+@media (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .left-section {
+    width: auto;
+  }
+
+  .calendar div {
+    padding: 2px;
+  }
+
+  select, #year {
+    font-size: 20px;
+    padding: 5px;
+    width: 150px;
+    height: 40px;
+    margin: 5px;
+  }
+
+  .selectMonth img {
+    height: 35px;
+    margin: 10px;
+  }
+
+  .weather-container {
+    padding: 15px;
+  }
+
+  .weather-container img {
+    height: 50px;
+  }
+
+  .weather-container h1{
+    font-size: 30px;
+  }
+
+  .normal-temperature {
+    font-size: 30px;
+  }
+
+  .feels-like-temperature {
+    font-size: 12px;
+  }
+
+  .events-container {
+    padding: 15px;
+  }
+
+  .right-section {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .time-container div {
+    font-size: 20px;
+    height: 40px;
+    width: 40px;
+  }
+
+  select, #year {
+    width: 100px;
+    font-size: 12px;
+    padding: 2px;
+  }
+
+  .selectMonth {
+    margin: 5px;
+  }
+
+  .selectMonth img {
+    height: 30px;
+    margin: 5px;
+  }
+
+  .calendar {
+    font-size: 15px;
+  }
+
+  .calendar .day {
+    font-weight: 100;
+    font-size: 15px;
+  }
+
+  .modal h1 {
+    font-size: 20px;
+  }
+
+  .modal-content {
+    padding: 10px 0px;
+  }
+
+  .modal textarea{
+    font-size: 12px;
+    width: auto;
+    margin: 10px 0px;
+    border: none;
+  }
+
+  .buttons-container {
+    width: auto;
+  }
+
+  .close-btn, .add-event-btn {
+    margin: 0px 10px;
+    width: 100px;
+  }
+}
