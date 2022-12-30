@@ -77,6 +77,10 @@ select, #year {
   font-weight: bolder;
 }
 
+.calendar .date:hover {
+  background-color: rgb(254, 163, 52);
+}
+
 .calendar .today {
   background-color:cornflowerblue;
 }
